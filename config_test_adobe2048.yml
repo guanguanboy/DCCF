@@ -4,7 +4,7 @@ EXPS_PATH: "./harmonization_exps"
 HFLICKR_PATH: "/S4/MI/xueb/data/IDIH/HFlickr"
 HDAY2NIGHT_PATH: "/S4/MI/xueb/data/IDIH/Hday2night"
 HCOCO_PATH: "/S4/MI/xueb/data/IDIH/HCOCO"
-HADOBE5K_PATH: "/data1/liguanlin/Datasets/iHarmony4/HAdobe5k_2048"
+HADOBE5K_PATH: "/data1/liguanlin/Datasets/iHarmony4/HAdobe5k_resized2048_2048"
 
 IMAGENET_PRETRAINED_MODELS:
   HRNETV2_W18_SMALL: "./pretrained_models/hrnet_w18_small_model_v2.pth"

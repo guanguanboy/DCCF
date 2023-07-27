@@ -130,15 +130,15 @@ def evaluate_dataset_upsample_hsl_refine(dataset, predictor, metrics_hub_lowres,
             raw_mask = np.stack([raw_mask]*3, axis=2) * 255
             pred_fullres = pred_fullres.cpu().numpy()
 
-            # cv2.imwrite(os.path.join(visdir, '%s.jpg' % imname), pred_fullres[:,:,::-1], [int(cv2.IMWRITE_JPEG_QUALITY), 100])
+            cv2.imwrite(os.path.join(visdir, '%s.jpg' % imname), pred_fullres[:,:,::-1], [int(cv2.IMWRITE_JPEG_QUALITY), 100])
             # print(os.path.join(visdir, '%s.jpg' % imname), visdir)
-            # cv2.imwrite(os.path.join(visdir, '%s_input_fullres.jpg' % imname), raw_image[:, :, ::-1])
-            # cv2.imwrite(os.path.join(visdir, '%s_gt_fullres.jpg' % imname), bdata['target_image'][:, :, ::-1])
-            # cv2.imwrite(os.path.join(visdir, '%s_mask_fullres.jpg' % imname), raw_mask * 255)
+            cv2.imwrite(os.path.join(visdir, '%s_input_fullres.jpg' % imname), raw_image[:, :, ::-1])
+            cv2.imwrite(os.path.join(visdir, '%s_gt_fullres.jpg' % imname), bdata['target_image'][:, :, ::-1])
+            cv2.imwrite(os.path.join(visdir, '%s_mask_fullres.jpg' % imname), raw_mask * 255)
             
-            pred = pred.cpu().numpy()
-            low_mask = sample['object_mask'][...,np.newaxis]
-            raw_mask = bdata['object_mask'][..., np.newaxis]
+            #pred = pred.cpu().numpy()
+            #low_mask = sample['object_mask'][...,np.newaxis]
+            #raw_mask = bdata['object_mask'][..., np.newaxis]
 
             # vis_l_input = to_image(inter_result['input_Lmap_fullres'])
             # vis_s_input = to_image(inter_result['input_Smap_fullres'])
@@ -179,7 +179,7 @@ def evaluate_dataset_upsample_hsl_refine(dataset, predictor, metrics_hub_lowres,
             # cv2.imwrite(os.path.join(visdir, '%s_stage1_rgb.jpg' % imname), vis_s1_rgb[:, :, ::-1])
             # cv2.imwrite(os.path.join(visdir, '%s_stage2_rgb.jpg' % imname), vis_s2_rgb[:, :, ::-1])
             # cv2.imwrite(os.path.join(visdir, '%s_stage3_rgb.jpg' % imname), vis_s3_rgb[:, :, ::-1])
-            cv2.imwrite(os.path.join(visdir, '%s_pred_lowres.jpg' % imname), pred[:, :, ::-1])
+            #cv2.imwrite(os.path.join(visdir, '%s_pred_lowres.jpg' % imname), pred[:, :, ::-1])
 
             # cv2.imwrite(os.path.join(visdir, '%s_input_fullres.jpg' % imname), raw_image[:, :, ::-1])
             # cv2.imwrite(os.path.join(visdir, '%s_gt_fullres.jpg' % imname), bdata['target_image'][:, :, ::-1])

@@ -4,17 +4,19 @@ from tqdm import tqdm
 from pathlib import Path
 
 max_size = 1024
-input_dataset_path = '/data1/liguanlin/Datasets/iHarmony4/HAdobe5k'
+input_dataset_path = '/data1/liguanlin/Datasets/iHarmony/HAdobe5k'
 output_path = f'{input_dataset_path}_resized{max_size}_{max_size}'
 
 input_dataset_path = Path(input_dataset_path)
 output_path = Path(output_path)
 
-assert not output_path.exists()
+if not Path.exists(output_path):
+    output_path.mkdir()
 
-output_path.mkdir()
 for subfolder in ['composite_images', 'masks', 'real_images']:
-    (output_path / subfolder).mkdir()
+    output_path_sub = output_path / subfolder
+    if not Path.exists(output_path_sub):
+        output_path_sub.mkdir()
 
 for annotation_path in input_dataset_path.glob('*.txt'):
     shutil.copy(annotation_path, output_path / annotation_path.name)

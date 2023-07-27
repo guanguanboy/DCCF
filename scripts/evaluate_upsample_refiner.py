@@ -82,7 +82,7 @@ def main():
 
 
     aug_fullres = HCompose([Resize(768, 1024)])
-    if args.res == 'LR':
+    if args.res == 'LR' or args.res == 'HR':
         aug_fullres = None
 
     if args.vis_dir:
